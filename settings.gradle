@@ -1,0 +1,4 @@
+rootProject.name = 'freecharge-automation'
+
+include 'bewakoof-ui-automation'
+include 'github-api-automation'

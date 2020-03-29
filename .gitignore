@@ -1,0 +1,9 @@
+.gradle
+build
+.classpath
+.gitattributes
+.project
+bin
+allure-*
+.settings
+.DS_Store
