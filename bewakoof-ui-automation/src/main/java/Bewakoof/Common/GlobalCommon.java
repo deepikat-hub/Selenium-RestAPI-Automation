@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite; 
-import org.testng.annotations.BeforeSuite; 
+import org.testng.annotations.BeforeSuite;
+
+import io.github.bonigarcia.wdm.WebDriverManager; 
 //import java.io.File;
 //import java.text.SimpleDateFormat;
 //
@@ -117,7 +119,8 @@ public class GlobalCommon {
 //	        System.getProperty("user.dir") +  
 //	            "\\src\\test\\java\\drivers\\chromedriver.exe"); 
 	    	
-	    	System.setProperty("webdriver.chrome.driver", "driver/chromedriver_mac");
+	    	WebDriverManager.chromedriver().setup();
+	    	//System.setProperty("webdriver.chrome.driver", "driver/chromedriver_mac");
 	    	ChromeOptions opt = new ChromeOptions();
 	    	opt.addArguments("disable-infobars");
 	    	opt.addArguments("--start-maximized");

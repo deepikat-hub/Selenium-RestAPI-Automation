@@ -26,4 +26,18 @@ allprojects {
         compile group: 'com.relevantcodes', name: 'extentreports', version: '2.41.1'
   	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
     }
+
+    test {
+        useTestNG() {}
+        testLogging.showStandardStreams = true
+        systemProperties System.properties
+        finalizedBy 'downloadAllure', 'allureServe'
+    }
+
+    allure {
+        version = '2.13.1'
+        aspectjweaver = true
+        autoconfigure = true
+    }
 }
+

@@ -12,19 +12,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Bewakoof.Utils.Logs;
+import io.qameta.allure.Step;
 
 public class Functions extends GlobalCommon {
 
+	@Step
 	public static void hoverAndClick(WebDriver driver,WebElement profileElement,WebElement preLoginElement) {
 		Actions action = new Actions(driver);
 		action.moveToElement(profileElement).click(preLoginElement).build().perform();
 	}
 
+	@Step
 	public static void wait(Integer waitTimeInSeconds, String path){
 		WebDriverWait wait= new WebDriverWait (GlobalCommon.driver,waitTimeInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
 	}
 
+	@Step
 	public static void checkUrl(String expectedKeyword){
 		String currentUrl=driver.getCurrentUrl();
 
@@ -38,6 +42,7 @@ public class Functions extends GlobalCommon {
 		}
 	}
 
+	@Step
 	public static void loadingCheckScripts() throws Exception {
 		final WebDriverWait wait = new WebDriverWait(driver, 60);
 		final JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -68,6 +73,7 @@ public class Functions extends GlobalCommon {
 		}
 	}
 
+	@Step
 	public static void getTitle(String ExpectedTitle){
 		String title=driver.getTitle();
 		assertEquals(title,ExpectedTitle);

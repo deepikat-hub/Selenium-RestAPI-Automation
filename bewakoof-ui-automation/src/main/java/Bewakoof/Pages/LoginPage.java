@@ -6,15 +6,18 @@ import org.openqa.selenium.WebElement;
 import Bewakoof.Locators;
 import Bewakoof.Common.Functions;
 import Bewakoof.Common.GlobalCommon;
+import io.qameta.allure.Step;
 
 public class LoginPage extends GlobalCommon{
 	public static String homePageTitle= "Online Shopping for Men, Women Clothing & Accessories at Bewakoof";
 	
+	@Step
 	public static void validateTitleLogin() throws Exception{
 		Functions.loadingCheckScripts();
 		Functions.getTitle(homePageTitle);
 	}
 	
+	@Step
 	public static void Login() throws Exception{
 //		Functions.loadingCheckScripts();
 		Thread.sleep(2000);
