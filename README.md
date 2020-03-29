@@ -22,7 +22,10 @@ Similarly for github api test the command to execute is as follows:
 For api navigate to github-api-automation—> src-> test—>java—>GitHubAPITest—> TeamsAPITest.java. Right click and run as a testNG suite
 
 ## Reports:
-1. Navigate to the project say in CLI and execute ../gradlew allureServe. In Eclipse, there are default testing reports as well available at test-output folder under the project.
+1. Navigate to the project say in CLI and execute 
+```../gradlew allureServe. 
+```
+In Eclipse, there are default testing reports as well available at test-output folder under the project.
 
 ## Logs:
 1. bewakoof-ui-automation: Navigate to bewakoof-ui-automation—>logs—>failureLogs.log. 
