@@ -13,8 +13,13 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class TeamsAPITest {
+	String username="deepitripathi13@gmail.com";
+	String password="bedc9bd4d6cb0a7a2a698904abc0154d866e3c11";
 
-	@Test // (dataProvider = "teams", dataProviderClass = ExcelReader.class)
+	/**@description:This test retrieves all the teams under organisation specified from github
+	 * @author: Deepika
+	 */
+	@Test 
 	public void getTeam() {
 
 		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams";
@@ -24,7 +29,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
+		httpRequest.auth().preemptive().basic(username, password);
 
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.GET);
@@ -35,7 +40,10 @@ public class TeamsAPITest {
 
 	}
 
-	@Test // (dataProvider = "teams", dataProviderClass = ExcelReader.class)
+	/**@description:This test creates a new team under organisation specified from github
+	 * @author: Deepika
+	 */
+	@Test
 	public void createTeam() {
 		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams";
 
@@ -43,7 +51,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
+		httpRequest.auth().preemptive().basic(username,password);
 		httpRequest.body("{\n" + "  \"name\": \"Justice\",\n" + "  \"description\": \"A great team\",\n"
 				+ "  \"permission\": \"admin\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
@@ -51,10 +59,15 @@ public class TeamsAPITest {
 		statusCode = responseWithAuth.getStatusCode();
 		System.out.println(statusCode);
 		System.out.println(responseWithAuth.getBody().asString());
+		// response
+		Assert.assertEquals(statusCode, 200);
 
 	}
 
-	@Test // (dataProvider = "teams", dataProviderClass = ExcelReader.class)
+	/**@description:This test updates/edits a team under organisation and team specified from github
+	 * @author: Deepika
+	 */
+	@Test
 	public void updateTeam() {
 
 		String teamname = createTeamForTest();
@@ -65,7 +78,7 @@ public class TeamsAPITest {
 
 		String newTeamMName = "Deepika" + System.currentTimeMillis();
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
+		httpRequest.auth().preemptive().basic(username, password);
 		httpRequest.body("{\n" + "  \"name\": \"" + newTeamMName + "\",\n"
 				+ "  \"description\": \"new team description\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
@@ -80,7 +93,10 @@ public class TeamsAPITest {
 				Tools.convertObjMapToStringMap(Tools.jsonToMapConverter1(getTeamForTest(response.getString("name")))));
 	}
 
-	@Test // (dataProvider = "teams", dataProviderClass = ExcelReader.class)
+	/**@description:This test deletes a team under organisation specified from github
+	 * @author: Deepika
+	 */
+	@Test
 	public void deleteTeam() {
 		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams/justicej";
 
@@ -88,7 +104,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
+		httpRequest.auth().preemptive().basic(username, password);
 
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.DELETE);
@@ -99,6 +115,8 @@ public class TeamsAPITest {
 
 	}
 
+	/**@description:This method creates a team in github and returns its name
+	 */	
 	public String createTeamForTest() {
 
 		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams";
@@ -107,7 +125,7 @@ public class TeamsAPITest {
 		int statusCode;
 		String teamName = "Team" + System.currentTimeMillis();
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
+		httpRequest.auth().preemptive().basic(username, password);
 		httpRequest.body("{\n" + "  \"name\":\"" + teamName + "\",\n" + "  \"description\": \"A great team\",\n"
 				+ "  \"permission\": \"admin\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
@@ -123,7 +141,10 @@ public class TeamsAPITest {
 
 	}
 
-	@Test // (dataProvider = "teams", dataProviderClass = ExcelReader.class)
+	/**@description:This method retrieves a team by the team name passed and returns its body
+	 * @param: name
+	 * 				Name of the new team whose body is to be retrieved
+	 */	
 	public String getTeamForTest(String name) {
 
 		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams/" + name;
@@ -133,7 +154,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
+		httpRequest.auth().preemptive().basic(username, password);
 
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.GET);

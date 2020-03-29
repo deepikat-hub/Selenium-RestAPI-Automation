@@ -1,4 +1,4 @@
-package GitHubAPITest;
+package GitHubAPITestPactWIP;
 
 
 import java.util.HashMap;
