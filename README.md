@@ -6,7 +6,7 @@
 NOTE : The projects are a bit slow the first time we run it. This is because it downloads the dependencies. From second run onwards its quite fast for now.
 
 ## Instructions to run:
-1. Run via CLI : Assuming you have cloned the project freecharge-automation, execute the following
+1. `Run via CLI` : Assuming you have cloned the project freecharge-automation, execute the following
 ```Cd freecharge-automation, 
 ./gradlew clean test -b bewakoof-ui-automation/build.gradle . 
 ```
@@ -15,10 +15,10 @@ Similarly for github api test the command to execute is as follows:
 ```cd freecharge-automation
 ./gradlew clean test -b github-api-automation/build.gradle 
 ```
-2. Run via xml file : This is available only for the ui automation right now. 
+2. `Run via xml file` : This is available only for the ui automation right now. 
  Right click on the xml file name or from within the open xml file in eclipse. Select ‘Run as testNG suite’. This can be later used to run targeted tests based on group tags, different xml for Smoke or other tests etc using Jenkins.
 
-3. Run class via Eclipse/ your IDE : Navigate to bewakoof-ui-automation. Click on src-> test—>java—>Bewakoof—>Login.java. Right click on the file and select ‘Run as testNG suite’. 
+3. `Run class via Eclipse/ your IDE` : Navigate to bewakoof-ui-automation. Click on src-> test—>java—>Bewakoof—>Login.java. Right click on the file and select ‘Run as testNG suite’. 
 For api navigate to github-api-automation—> src-> test—>java—>GitHubAPITest—> TeamsAPITest.java. Right click and run as a testNG suite
 
 ## Reports:
