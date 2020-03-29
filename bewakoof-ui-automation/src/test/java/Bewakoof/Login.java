@@ -30,6 +30,10 @@ public class Login extends GlobalCommon {
 		// Home.logout();
 	}
 
+	/**@description:Verify buying journey - positive case
+	 * @author: Deepika
+	 * @throws Exception
+	 */
 	@Test
 	public void test() throws Exception {
 

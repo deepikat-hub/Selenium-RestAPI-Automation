@@ -24,7 +24,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "56f680a874088405c7d8316bbf6f238bedb2a117");
+		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
 
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.GET);
@@ -43,7 +43,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "56f680a874088405c7d8316bbf6f238bedb2a117");
+		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
 		httpRequest.body("{\n" + "  \"name\": \"Justice\",\n" + "  \"description\": \"A great team\",\n"
 				+ "  \"permission\": \"admin\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
@@ -65,7 +65,7 @@ public class TeamsAPITest {
 
 		String newTeamMName = "Deepika" + System.currentTimeMillis();
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "56f680a874088405c7d8316bbf6f238bedb2a117");
+		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
 		httpRequest.body("{\n" + "  \"name\": \"" + newTeamMName + "\",\n"
 				+ "  \"description\": \"new team description\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
@@ -88,7 +88,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "56f680a874088405c7d8316bbf6f238bedb2a117");
+		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
 
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.DELETE);
@@ -107,7 +107,7 @@ public class TeamsAPITest {
 		int statusCode;
 		String teamName = "Team" + System.currentTimeMillis();
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "56f680a874088405c7d8316bbf6f238bedb2a117");
+		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
 		httpRequest.body("{\n" + "  \"name\":\"" + teamName + "\",\n" + "  \"description\": \"A great team\",\n"
 				+ "  \"permission\": \"admin\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
@@ -133,7 +133,7 @@ public class TeamsAPITest {
 		int statusCode;
 
 		// Passing the Basic Auth username and password
-		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "56f680a874088405c7d8316bbf6f238bedb2a117");
+		httpRequest.auth().preemptive().basic("deepitripathi13@gmail.com", "bedc9bd4d6cb0a7a2a698904abc0154d866e3c11");
 
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.GET);

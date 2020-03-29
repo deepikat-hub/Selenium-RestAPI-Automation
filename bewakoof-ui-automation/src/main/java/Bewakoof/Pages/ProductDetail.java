@@ -7,10 +7,11 @@ import org.openqa.selenium.interactions.Actions;
 import Bewakoof.Locators;
 import Bewakoof.Common.Functions;
 import Bewakoof.Common.GlobalCommon;
+import io.qameta.allure.Step;
 
 public class ProductDetail extends GlobalCommon{
 	
-	
+	@Step
 	public static void selectSize() throws Exception{
 //		Functions.wait(60, Locators.sizeMedium);
 		Thread.sleep(4000);
@@ -19,6 +20,7 @@ public class ProductDetail extends GlobalCommon{
 		action.moveToElement(sizeElement).click().build().perform();
 	}
 	
+	@Step
 	public static void addToBag() throws Exception{
 //		Functions.wait(40, Locators.addToBag);
 		Thread.sleep(4000);
@@ -26,6 +28,7 @@ public class ProductDetail extends GlobalCommon{
 		addToBagElement.click();
 	}
 	
+	@Step
 	public static void goToBag() throws InterruptedException{
 //		Functions.wait(40, Locators.goToBag);
 		Thread.sleep(4000);

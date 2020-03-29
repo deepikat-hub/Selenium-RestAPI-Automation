@@ -11,12 +11,6 @@ import org.testng.Assert;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-//
-//import org.json.simple.JSONObject;
-//import org.json.simple.parser.JSONParser;
-//
-//import com.jayway.restassured.response.Headers;
-//
 public class Tools {
 	public static Map<String, String> convertKeystoLowerCase(Map<String, String> inputMap) {
 		Map<String, String> resultMap;
@@ -146,67 +140,4 @@ public class Tools {
 		System.out.println("converted Map - " + retTemp);
 		return retTemp;
 	}
-
-	// public static String requestURI = null;
-	// public static Object requestObject = null;
-	// public static final String REQUEST_URL="requestURI";
-	// public static final String REQUEST_BODY="requestBody";
-	// public static final String METHOD="method";
-	// public static Headers header = new Headers();
-	// public static HTTPQueryParams queryParams = new HTTPQueryParams();
-	// public static HTTPParams params = new HTTPParams();
-	//
-	// public static void sendRequest(String input, String methodName) {
-	//
-	// JSONObject jsonObject = stringToJson(input);
-	// try {
-	// String path = null;
-	//
-	// path = requestURI;
-	//
-	// // if (jsonObject.containsKey(REQUEST_BODY))
-	// //LogExtent.jsonInfo("Request Body for "+ methodName +" is ",
-	// jsonObject.toString());
-	// HTTPRequest requestSpec = new HTTPRequest(header, params, queryParams,
-	// requestObject);
-	// if (null == jsonObject.get(METHOD))
-	// response = rc.sendRequest(HTTPMethod.GET, path, requestSpec);
-	// else {
-	//
-	// switch (jsonObject.get(METHOD).toString().toLowerCase()) {
-	// case "delete":
-	// response = rc.sendRequest(HTTPMethod.DELETE, path, requestSpec);
-	// break;
-	// case "post":
-	// response = rc.sendRequest(HTTPMethod.POST, path, requestSpec);
-	// break;
-	// case "put":
-	// response = rc.sendRequest(HTTPMethod.PUT, path, requestSpec);
-	// break;
-	// default:
-	// response = rc.sendRequest(HTTPMethod.GET, path, requestSpec);
-	// break;
-	// }
-	// }
-	// //LogExtent.info( "Method -> " + jsonObject.get( METHOD
-	// ).toString().toUpperCase() + " and End point " + path );
-	// //LogExtent.jsonInfo( "Reaponse Status code is -> " +
-	// response.getStatusCode() + " and Response Body for " + methodName + " is ",
-	// response
-	// // .getBody().getBodyText() );
-	// } catch (Exception e) {
-	// // Log.error("Error:: " + e);
-	// }
-	// }
-	// public static JSONObject stringToJson(String input) {
-	// try {
-	// JSONParser parser = new JSONParser();
-	// JSONObject json = (JSONObject) parser.parse(input);
-	// // logs.info("test data " + input);
-	// return json;
-	// } catch (ParseException e) {
-	// // Log.error("Error in pasrsing input data:" + e);
-	// return null;
-	// }
-	// }
 }
