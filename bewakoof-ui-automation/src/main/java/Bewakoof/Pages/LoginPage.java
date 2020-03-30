@@ -33,7 +33,7 @@ public class LoginPage extends GlobalCommon{
 		Functions.waitFor(40,By.xpath(Locators.login), "LOG IN");
 		WebElement loginElement=driver.findElement(By.xpath(Locators.login));
 		loginElement.click();
-		Functions.loadingCheckScripts();
+		Functions.wait(40, Locators.loginIcon);
 	}
 	
 

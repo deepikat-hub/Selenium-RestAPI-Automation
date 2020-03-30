@@ -10,6 +10,7 @@ public class Locators {
 	public static String password = "//input[contains(@id,'mob_password')]";
 	public static String login = "//button[contains(text(),\"LOG IN\")]";
 	public static String signup = "//span[contains(text(),'SIGN UP')]";
+	public static String loginIcon = "//i[contains(@class,'icon_user')]";
 
 	public static String product="//div[contains(@id,'testProductcard_1')]//a";
 	public static String sizeMedium="//div[contains(@id,'testSizes_M')]";
