@@ -7,21 +7,26 @@ NOTE : The projects download gradle dependencies when run for the first time. Su
 
 ## Prerequisites:
  1. Chrome browser preferably latest version should be installed in the runtime environment.
- 2. IDE prefereably Eclipse should be available for running tests via it.
+ 2. Java 8
  3. CLI should be available for running tests via it.
+ 4. Optional - IDE prefereably Eclipse should be available for running tests via it.
  
 ## Instructions to run:
-1. `Run via CLI` : Assuming you have cloned the project freecharge-automation, execute the following
+1. `Run via CLI` : Assuming you have cloned the project freecharge-automation, execute the following for MAC OS/ Linux
 ```
- Cd freecharge-automation, 
-./gradlew clean test -b bewakoof-ui-automation/build.gradle . 
+ Cd freecharge-automation
+./gradlew clean test -b bewakoof-ui-automation/build.gradle 
 ```
+For Windows OS, just replace `./gradlew` by `gradlew` in the above command.
+
 A allure report is by default opened in the browser after the test is completed. 
 Similarly for github api test the command to execute is as follows:
 ```
  cd freecharge-automation
 ./gradlew clean test -b github-api-automation/build.gradle 
 ```
+For Windows OS, just replace `./gradlew` by `gradlew` in the above command.
+
 2. `Run via xml file` : This is available only for the ui automation right now. 
  Right click on the xml file name or from within the open xml file in eclipse. Select ‘Run as testNG suite’. This can be later used to run targeted tests based on group tags, different xml for Smoke or other tests etc using Jenkins.
 
