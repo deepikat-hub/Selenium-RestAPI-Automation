@@ -15,7 +15,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class TeamsAPITest {
 	private String username="deepitripathi13@gmail.com";
-	private String password="01bacb915098a4bc1f9dfd96df9ab050563ba91e";
+	private String password="d395ae00e2a589de96e9ec680ce50686d0d0d7f6";
 	private static String url="https://api.github.com/orgs/TestOrganisa/teams"; 
 
 	/**@description:This test retrieves all the teams under organisation specified from github
