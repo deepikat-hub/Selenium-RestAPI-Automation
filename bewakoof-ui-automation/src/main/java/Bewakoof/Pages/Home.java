@@ -12,7 +12,8 @@ import io.qameta.allure.Step;
 public class Home extends GlobalCommon{
 
 	@Step
-	public static void search(String searchText){
+	public static void search(String searchText) throws Exception{
+		Functions.loadingCheckScripts();
 		Functions.wait(40, Locators.search);
 		WebElement searchElement=driver.findElement(By.xpath(Locators.search));
 

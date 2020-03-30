@@ -11,25 +11,24 @@ import io.qameta.allure.Step;
 public class Payment extends GlobalCommon{
 
 	@Step
-	public static void selectPaymentMode(String path) throws InterruptedException{
-//		Functions.wait(60, Locators.wallet);
-		Thread.sleep(4000);
+	public static void selectPaymentMode(String path,String name) throws InterruptedException{
+		Functions.waitFor(60, By.xpath(Locators.wallet),name);
 		WebElement walletElement=driver.findElement(By.xpath(path));
 		walletElement.click();
 	}
 	
 	@Step
-	public static void selectPaymentOption(By path) throws Exception{
-//		Functions.wait(40, "");
-		Thread.sleep(4000);
+	public static void selectPaymentOption(By path,String name) throws Exception{
+		if(name.contains("Paytm")) {
+			Functions.waitFor(40, By.xpath(Locators.paytmLabel),name);
+		}
 		WebElement paytmElement=driver.findElement(path);
 		paytmElement.click();
 	}
 	
 	@Step
 	public static void payNow() throws InterruptedException{
-//		Functions.wait(40, Locators.payNow);
-		Thread.sleep(4000);
+		Functions.waitFor(40, By.xpath(Locators.payNow),"PAY NOW");
 		WebElement payNowElement=driver.findElement(By.xpath(Locators.payNow));
 		payNowElement.click();
 	}

@@ -13,27 +13,22 @@ public class ProductDetail extends GlobalCommon{
 	
 	@Step
 	public static void selectSize() throws Exception{
-//		Functions.wait(60, Locators.sizeMedium);
-		Thread.sleep(4000);
+		Functions.waitFor(40, By.xpath(Locators.sizeMedium),"M");
 		WebElement sizeElement= driver.findElement(By.xpath(Locators.sizeMedium));
-		Actions action = new Actions(driver);
-		action.moveToElement(sizeElement).click().build().perform();
+		sizeElement.click();
 	}
 	
 	@Step
 	public static void addToBag() throws Exception{
-//		Functions.wait(40, Locators.addToBag);
-		Thread.sleep(4000);
+		Functions.waitFor(40, By.xpath(Locators.addToBag),"ADD TO BAG");
 		WebElement addToBagElement= driver.findElement(By.xpath(Locators.addToBag));
 		addToBagElement.click();
 	}
 	
 	@Step
 	public static void goToBag() throws InterruptedException{
-//		Functions.wait(40, Locators.goToBag);
-		Thread.sleep(4000);
+		Functions.waitFor(40, By.xpath(Locators.goToBag),"GO TO BAG");
 		WebElement goToBagElement= driver.findElement(By.xpath(Locators.goToBag));
-		Thread.sleep(3000);
 		goToBagElement.click();
 	}
 }

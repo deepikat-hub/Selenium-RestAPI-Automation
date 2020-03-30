@@ -17,6 +17,8 @@ import Bewakoof.Pages.ProductDetail;
 public class Login extends GlobalCommon {
 
 	private String searchText = "white tee";
+	private String walletText = "WALLET";
+	private String paytmText = "Paytm";
 
 	@BeforeClass
 	public void start() throws Exception {
@@ -27,10 +29,9 @@ public class Login extends GlobalCommon {
 	@AfterClass
 	public void end() throws Exception {
 		Home.goToURL(Locators.urlHomePage);
-		// Home.logout();
 	}
 
-	/**@description:Verify buying journey - positive case
+	/**@description:Verify product buying journey by existing user - positive case
 	 * @author: Deepika
 	 * @throws Exception
 	 */
@@ -46,8 +47,8 @@ public class Login extends GlobalCommon {
 		ProductDetail.goToBag();
 		Cart.selectDeliveryAddress();
 		Checkout.deliverHere();
-		Payment.selectPaymentMode(Locators.wallet);
-		Payment.selectPaymentOption(By.cssSelector(Locators.paytm));
+		Payment.selectPaymentMode(Locators.wallet,walletText);
+		Payment.selectPaymentOption(By.cssSelector(Locators.paytm),paytmText);
 		Payment.payNow();
 		ProcessTransaction.checkThirdPartyPage();
 

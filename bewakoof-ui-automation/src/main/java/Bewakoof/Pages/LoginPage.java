@@ -19,12 +19,10 @@ public class LoginPage extends GlobalCommon{
 	
 	@Step
 	public static void Login() throws Exception{
-//		Functions.loadingCheckScripts();
-		Thread.sleep(2000);
+		Functions.waitFor(40,By.id(Locators.goToLoginButton), "Login");
 		WebElement preLoginElement=driver.findElement(By.id(Locators.goToLoginButton));
 		Functions.hoverAndClick(driver, preLoginElement, preLoginElement);
-//		Functions.loadingCheckScripts();
-		Thread.sleep(2000);
+		Functions.waitFor(40,By.xpath(Locators.signup), "SIGN UP");
 		WebElement emailElement=driver.findElement(By.id(Locators.email));
 		emailElement.sendKeys("deepitripathi13@gmail.com");
 		WebElement continueButtonElement=driver.findElement(By.xpath(Locators.continueButton));
@@ -32,10 +30,10 @@ public class LoginPage extends GlobalCommon{
 		Functions.wait(40, Locators.password);
 		WebElement passwordElement=driver.findElement(By.xpath(Locators.password));
 		passwordElement.sendKeys("Freecharge@1");
-		Thread.sleep(2000);
+		Functions.waitFor(40,By.xpath(Locators.login), "LOG IN");
 		WebElement loginElement=driver.findElement(By.xpath(Locators.login));
 		loginElement.click();
-		Thread.sleep(2000);
+		Functions.loadingCheckScripts();
 	}
 	
 

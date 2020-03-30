@@ -27,6 +27,11 @@ public class Functions extends GlobalCommon {
 		WebDriverWait wait= new WebDriverWait (GlobalCommon.driver,waitTimeInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
 	}
+	
+	public static void waitFor(Integer waitTimeInSeconds, By path,String text){
+		WebDriverWait wait= new WebDriverWait (GlobalCommon.driver,waitTimeInSeconds);
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(path,text));
+	}
 
 	@Step
 	public static void checkUrl(String expectedKeyword){

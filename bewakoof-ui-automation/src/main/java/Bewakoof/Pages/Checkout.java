@@ -12,7 +12,7 @@ public class Checkout extends GlobalCommon{
 
 	@Step
 	public static void deliverHere(){
-		Functions.wait(20, Locators.deliverHereButton);
+		Functions.waitFor(20,By.xpath(Locators.deliverHereButton),"DELIVER HERE");
 		WebElement deliverHereButtonElement=driver.findElement(By.xpath(Locators.deliverHereButton));
 		deliverHereButtonElement.click();
 	}

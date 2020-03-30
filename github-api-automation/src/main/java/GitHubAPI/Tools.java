@@ -107,18 +107,12 @@ public class Tools {
 		HashMap<String, String> dataMap = new HashMap<String, String>();
 		try {
 			Gson gson = new Gson();
-			// Map inspectionObj = gson.fromJson(jsondata, Map.class);
 			Map inspectionObj = convertJsonToMap(jsonData);
-			// logger.info( "map:--" + inspectionObj );
 
 			// put non json data in map
 			Iterator datalocal = dataMap.entrySet().iterator();
 			while (datalocal.hasNext()) {
 				Map.Entry extradatamap = (Map.Entry) datalocal.next();
-				// logger.info(extradatamap.getKey() + " = "
-				// + extradatamap.getValue());
-				// inspectionObj.put(extradatamap.getKey(),
-				// extradatamap.getValue());
 				System.out.println(extradatamap.getKey() + " = " + extradatamap.getValue());
 				inspectionObj.put(extradatamap.getKey(), extradatamap.getValue());
 			}

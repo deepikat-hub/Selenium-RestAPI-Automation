@@ -7,14 +7,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import GitHubAPI.Tools;
+import Utils.Logs;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class TeamsAPITest {
-	String username="deepitripathi13@gmail.com";
-	String password="bedc9bd4d6cb0a7a2a698904abc0154d866e3c11";
+	private String username="deepitripathi13@gmail.com";
+	private String password="01bacb915098a4bc1f9dfd96df9ab050563ba91e";
+	private static String url="https://api.github.com/orgs/TestOrganisa/teams"; 
 
 	/**@description:This test retrieves all the teams under organisation specified from github
 	 * @author: Deepika
@@ -22,8 +24,7 @@ public class TeamsAPITest {
 	@Test 
 	public void getTeam() {
 
-		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams";
-
+		RestAssured.baseURI = url;
 		RequestSpecification httpRequest = RestAssured.given();
 
 		int statusCode;
@@ -36,7 +37,7 @@ public class TeamsAPITest {
 		statusCode = responseWithAuth.getStatusCode();
 		// response
 		Assert.assertEquals(statusCode, 200);
-		System.out.println(responseWithAuth.getBody().asString());
+		Logs.logger.info(responseWithAuth.getBody().asString());
 
 	}
 
@@ -45,22 +46,23 @@ public class TeamsAPITest {
 	 */
 	@Test
 	public void createTeam() {
-		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams";
+		String newTeamMName = "NewTeam" + System.currentTimeMillis();
+		RestAssured.baseURI = url;
 
 		RequestSpecification httpRequest = RestAssured.given();
 		int statusCode;
 
 		// Passing the Basic Auth username and password
 		httpRequest.auth().preemptive().basic(username,password);
-		httpRequest.body("{\n" + "  \"name\": \"Justice\",\n" + "  \"description\": \"A great team\",\n"
+		httpRequest.body("{\n" + "  \"name\": \"" + newTeamMName + "\",\n" + "  \"description\": \"A great team\",\n"
 				+ "  \"permission\": \"admin\",\n" + "  \"privacy\": \"closed\"\n" + "}");
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.POST);
 		statusCode = responseWithAuth.getStatusCode();
-		System.out.println(statusCode);
-		System.out.println(responseWithAuth.getBody().asString());
+		Logs.logger.info(statusCode);
+		Logs.logger.info(responseWithAuth.getBody().asString());
 		// response
-		Assert.assertEquals(statusCode, 200);
+		Assert.assertEquals(statusCode, 201);
 
 	}
 
@@ -71,7 +73,7 @@ public class TeamsAPITest {
 	public void updateTeam() {
 
 		String teamname = createTeamForTest();
-		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams/" + teamname;
+		RestAssured.baseURI = url + "/" + teamname;
 
 		RequestSpecification httpRequest = RestAssured.given();
 		int statusCode;
@@ -84,8 +86,8 @@ public class TeamsAPITest {
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.PATCH);
 		statusCode = responseWithAuth.getStatusCode();
-		System.out.println(statusCode);
-		System.out.println(responseWithAuth.getBody().asString());
+		Logs.logger.info(statusCode);
+		Logs.logger.info(responseWithAuth.getBody().asString());
 		JSONObject response = new JSONObject(responseWithAuth.getBody().asString());
 		// getTeamForTest(response.getString("name"));
 		Tools.verifyResults(
@@ -98,7 +100,8 @@ public class TeamsAPITest {
 	 */
 	@Test
 	public void deleteTeam() {
-		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams/justicej";
+		String teamname = createTeamForTest();
+		RestAssured.baseURI = url+ "/"+teamname;
 
 		RequestSpecification httpRequest = RestAssured.given();
 		int statusCode;
@@ -109,9 +112,9 @@ public class TeamsAPITest {
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.DELETE);
 		statusCode = responseWithAuth.getStatusCode();
-		System.out.println(statusCode);
+		Logs.logger.info(statusCode);
 		assertEquals(statusCode, 204);
-		System.out.println(responseWithAuth.getBody().asString());
+		Logs.logger.info(responseWithAuth.getBody().asString());
 
 	}
 
@@ -119,7 +122,7 @@ public class TeamsAPITest {
 	 */	
 	public String createTeamForTest() {
 
-		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams";
+		RestAssured.baseURI = url;
 
 		RequestSpecification httpRequest = RestAssured.given();
 		int statusCode;
@@ -131,8 +134,8 @@ public class TeamsAPITest {
 		// Expecting our Auth works and verifying status code
 		Response responseWithAuth = httpRequest.request(Method.POST);
 		statusCode = responseWithAuth.getStatusCode();
-		System.out.println(statusCode);
-		System.out.println(responseWithAuth.getBody().asString());
+		Logs.logger.info(statusCode);
+		Logs.logger.info(responseWithAuth.getBody().asString());
 
 		JSONObject response = new JSONObject(responseWithAuth.getBody().asString());
 		response.getString("name");
@@ -147,7 +150,7 @@ public class TeamsAPITest {
 	 */	
 	public String getTeamForTest(String name) {
 
-		RestAssured.baseURI = "https://api.github.com/orgs/TestOrganisa/teams/" + name;
+		RestAssured.baseURI = url + "/"+ name;
 
 		RequestSpecification httpRequest = RestAssured.given();
 
@@ -161,7 +164,7 @@ public class TeamsAPITest {
 		statusCode = responseWithAuth.getStatusCode();
 		// response
 		Assert.assertEquals(statusCode, 200);
-		System.out.println(responseWithAuth.getBody().asString());
+		Logs.logger.info(responseWithAuth.getBody().asString());
 
 		return responseWithAuth.getBody().asString();
 	}
