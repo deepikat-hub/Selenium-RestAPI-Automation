@@ -26,7 +26,8 @@ For api navigate to github-api-automation—> src-> test—>java—>GitHubAPITes
 ## Reports:
 1. Navigate to the project say in CLI and execute 
 ``` cd <TO your project> 
-    ../gradlew allureServe```
+    ../gradlew allureServe 
+    ```
 In Eclipse, there are default testing reports as well available at test-output folder under the project.
 
 ## Logs:
