@@ -5,6 +5,11 @@
 
 NOTE : The projects download gradle dependencies when run for the first time. Subsequent runs will be faster.
 
+## Prerequisites:
+ 1. Chrome browser preferably latest version should be installed in the runtime environment.
+ 2. IDE prefereably Eclipse should be available for running tests via it.
+ 3. CLI should be available for running tests via it.
+ 
 ## Instructions to run:
 1. `Run via CLI` : Assuming you have cloned the project freecharge-automation, execute the following
 ```
