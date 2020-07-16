@@ -12,9 +12,9 @@ NOTE : The projects download gradle dependencies when run for the first time. Su
  4. Optional - IDE prefereably Eclipse should be available for running tests via it.
  
 ## Instructions to run:
-1. `Run via CLI` : Assuming you have cloned the project freecharge-automation, execute the following for MAC OS/ Linux
+1. `Run via CLI` : Assuming you have cloned the project Selenium-RestAPI-Automation, execute the following for MAC OS/ Linux
 ```
- Cd freecharge-automation
+ Cd Selenium-RestAPI-Automation
 ./gradlew clean test -b bewakoof-ui-automation/build.gradle 
 ```
 For Windows OS, just replace `./gradlew` by `gradlew` in the above command.
@@ -22,7 +22,7 @@ For Windows OS, just replace `./gradlew` by `gradlew` in the above command.
 A allure report is by default opened in the browser after the test is completed. 
 Similarly for github api test the command to execute is as follows:
 ```
- cd freecharge-automation
+ cd Selenium-RestAPI-Automation
 ./gradlew clean test -b github-api-automation/build.gradle 
 ```
 For Windows OS, just replace `./gradlew` by `gradlew` in the above command.
